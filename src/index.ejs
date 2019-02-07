@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<% const menuItems = [
+    {title: 'HairCare', link: '#'},
+    {title: 'Color', link: '#'},
+    {title: 'Styling', link: '#'},
+    {title: 'Texture', link: '#'},
+    {title: 'Get Inspired', link: '#'},
+    {title: 'Social', link: '#'},
+    {title: 'News', link: '#'},
+    {title: 'About', link: '#'},
+    {title: 'Professional', link: '#'}
+];
+const videos = [
+    {
+        title: 'STEP BY STEP',
+        link: ["z8M0Fa1JVco",
+            "Wi2KcdoCuo4",
+            "8H6dYUgQKB8",
+            "PZjGrmHdFME",
+            "_wLGr24VeoI",
+            "DG4FAU5qmMY"]
+    },
+    {
+        title: 'CRAFT EDUCATION',
+        link: ["RmNWNLXmswk",
+            "-tztXOz8Vc0",
+            "kUfIVtyydgQ"]
+    },
+
+    {
+        title: "INSPIRATION",
+        link: ["VmmwwzR536g",
+            "vz0k8O-Ef9Y",
+            "6oPBFnsqJW8"]
+    }
+];
+
+const links = [
+    {title: 'facebook',link: "img/ico_facebook.svg"},
+    {title: 'twitter',link: "img/ico_twitter.svg"},
+    {title: 'pinterest',link: "img/ico_pinterest.svg"},
+    {title: 'youtube',link: "img/ico_youtube.svg"},
+    {title: 'instagram',link: "img/ico_instagram.svg"}
+];
+%>
+
+<body class="page">
+<div class="header">
+    <div class="title">
+        <!-- Кнопка меню для мобильных -->
+        <button data-collapse data-target="#navigation" class=" title__toggle">
+            <img src="img/ico_menu.svg" alt="=" class=" title__icon">
+        </button>
+
+        <div class="title__logo logo">
+            <img src="img/logo.svg" alt="TamTaram logo" class="logo__img title__logo__img">
+        </div>
+
+    </div>
+    <div class="navigation-block">
+        <!--<div class="header_link_bottom navigation-block">
+            <a class="text">NEAREST SALON </a>
+            <a href="/"><img src="img/ico_dropdown.svg" alt="->" class="drop_down"></a>
+            <a class="bottom_text">Plush Salon 92101</a>
+        </div>
+        -->
+        <div class=" title__nearest">
+            <span class=" title__nearest__text">NEAREST SALON </span>
+            <a href="/" class="title__nearest__link">
+                <img src="img/ico_dropdown.svg" alt="->" class=" title__nearest__dropdown">
+            </a>
+            <span class="title__nearest__text_bottom">Plush Salon 92101</span>
+        </div>
+        <form class="title__search-form search-form" action="#" method="get">
+            <input class="search-form__input" type="text" placeholder="Введите запрос..">
+            <button class="search-form__button" type="submit">
+                <img src="img/ico_search.svg" alt="Поиск" class="search-form__img">
+            </button>
+        </form>
+
+
+        <nav class="menu navigation-block__menu">
+            <ul class="menu__list">
+                <% menuItems.forEach((item) => { %>
+                    <li class="menu__item">
+                        <!--margin > li-->
+                        <!--padding > a-->
+                        <a class="menu__link" href="<%= item.link %>"><%= item.title %></a>
+                    </li>
+                <% }) %>
+            </ul>
+        </nav>
+        <!--
+        <div class="header_search-form_bottom" action="#" method="get">
+            <input class="search-form_input_bottom" type="text" placeholder="Введите запрос..">
+            <button class="search-form_button_bottom" type="submit">
+                <img src="img/ico_search.svg" alt="Поиск">
+            </button>
+        </div>
+        -->
+    </div>
+</div>
+
+<div class="content page-content">
+    <div class="page-content__main-video"></div><!-- !!!? -->
+    <div class="container page-content__container">
+        <div class="page-content__title">VIDEOS</div>
+
+        <div class="youtube page-content__youtube">
+            <a data-fancybox href='https://youtu.be/9U7FO-op1Bc' class="page-content__link"> <!--class="popupbox-video fancybox fancybox.iframe" rel="group"-->
+                <img src="https://img.youtube.com/vi/9U7FO-op1Bc/mqdefault.jpg" alt="" class="videos__img">
+                <!-- transform: translate(-50%, -50%); -->
+            </a>
+        </div>
+        <div class="page-content__text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellensque lobortis nisl at ullamcorper
+            egestas, felisadi piscing dolor, a interdum lorem urna quis magna.
+        </div>
+        <div class="page-content__separator" style="width:100%;height:2px;background-color:black;"></div>
+
+        <!--  -->
+    </div>
+
+    <% videos.forEach((item) => { %>
+        <div class="page-content__videos videos">
+            <div class="videos__title"><%= item.title %></div>
+            <div class="videos__wrap slider">
+                <% item.link.forEach( (video,i) => { %>
+                <% if (i<3) {%>
+                <a data-fancybox href="https://youtu.be/<%=video%>" class="videos__link">
+                    <img src="https://img.youtube.com/vi/<%=video%>/mqdefault.jpg" alt="" class="videos__img">
+                </a>
+                <% } else { %>
+                    <a data-fancybox href="https://youtu.be/<%=video%>" class="videos__link videos__mobile-invisble">
+                        <img src="https://img.youtube.com/vi/<%=video%>/mqdefault.jpg" alt="" class="videos__img">
+                    </a>
+                <% } %>
+                <% }) %>
+            </div>
+            <button class="video__more">LOAD MORE</button>
+        </div>
+    <% }) %>
+
+
+<footer class="footer">
+    <% links.forEach((item) => { %>
+        <img src="<%=item.link%>" alt="" class="footer__img">
+    <% }) %>
+    <div class="footer__text">
+        LOCATION: UNITED STATES  <br>
+        LANGUAGE: ENGLISH
+    </div>
+</footer>
+<script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.js"></script>
+<script src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+<script src="js/scripts.js"></script>
+
+
+
+ <!--Слайдер -->
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        let slickLoaded = false;
+        $(window).resize(function () {
+            if (screen.width < 768) {
+                slickLoaded = false;
+                return;
+            }
+            if (slickLoaded) {
+                return;
+            }
+
+
+
+            slickLoaded = true;
+            $('.slider').slick({
+                infinite: false,
+                //количество слайдов для показа
+                slidesToShow: 4,
+                //сколько слайдов за раз перелистнется
+                slidesToScroll: 2,
+                responsive: [
+                    {
+                        //при какой ширине экрана нужно включать настройки
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1,
+                            infinite: true,
+                        }
+                    },
+                    {
+                        //при какой ширине экрана нужно включать настройки
+                        breakpoint: 320,
+                        settings: "unslick"
+                    }
+                ]
+            });
+        });
+
+    });
+</script>
+</body>
+</html>

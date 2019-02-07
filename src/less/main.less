@@ -1,0 +1,468 @@
+@import 'media';
+
+body {
+    background: #ccc;
+}
+
+.page {
+    background: white;
+    margin: 0;
+    width: 100%;
+}
+
+.header {
+    background: #5b1dcd;
+    color: white;
+}
+
+//верхняя часть хедера
+.title {
+    //кнопка меню для мобильных
+    &__toggle {
+        display: inline-block;
+        background: transparent;
+        border: none;
+        padding: 10px 10px;
+        @media @tablet {
+            display: none;
+        }
+    }
+
+    &__icon {
+        background: transparent;
+        width: 45px;
+        height: 35px;
+        @media @tablet {
+            display: none;
+        }
+    }
+
+    //адресс-ссылка
+    &__nearest {
+        display: inline-block;
+        background: transparent;
+        padding-left: 20px;
+        min-width: 110px;
+        margin-top: 15px;
+        @media @tablet {
+            transform: translateY(-35px);
+        }
+
+        &__text {
+            display: block;
+            float: left;
+            font: 11px/5px Arial, sans-serif;
+            padding: 0;
+        }
+
+        &__text_bottom {
+            display: block;
+            font: 10px/7px Arial, sans-serif;
+            margin-top: 11px;
+            padding: 0;
+        }
+
+        &__link {
+        }
+
+        //галочка
+        &__dropdown {
+            display: block;
+            float: right;
+            margin-left: 5px;
+            width: 10px;
+            height: 10px;
+        }
+    }
+
+    &__logo {
+        /* Логотип Tam-Taram */
+        width: 70%;
+        display: inline-block;
+        position: absolute;
+        height: auto;
+        overflow: auto;
+        padding: 20px 0;
+        margin-left: 20%;
+        top: 0;
+        left: 0;
+        right: 0;
+        @media @tablet {
+            width: 30%;
+            min-width: 400px;
+            margin: auto;
+            padding: 0;
+        }
+
+        &__img {
+            @media @tablet {
+                width: 400px;
+                height: 50px;
+                padding: 0;
+            }
+        }
+    }
+
+    &__search-form {
+        display: inline-block;
+        margin: 12px 20px;
+        @media @tablet {
+            transform: translateY(-20px);
+        }
+    }
+}
+
+.search-form {
+    width: 300px;
+    height: 42px;
+    @media @tablet{
+        width: 300px;
+    }
+
+    &__input {
+        height: 42px;
+        width: 0;
+        padding: 0 42px 0 15px;
+        border: none;
+        border-bottom: 2px solid transparent;
+        outline: none;
+        color: white;
+        background: transparent;
+        transition: .4s cubic-bezier(0, .8, 0, 1);
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 2;
+    }
+
+    &__input:focus {
+        width: 16%;
+        z-index: 1;
+        border-bottom: 2px solid #F9F0DA;
+    }
+
+    &__input::-webkit-input-placeholder {
+        color: #cbb8ff;
+        font-style: italic;
+    }
+
+    &__button {
+        margin-left: 0;
+        //left: 470px;
+        background: transparent;
+        border: none;
+        height: 35px;
+        width: 35px;
+        position: absolute;
+        cursor: pointer;
+        @media @tablet {
+            top: 12px;
+            right: 12px;
+        }
+    }
+
+    &__img {
+    }
+
+}
+
+.navigation-block {
+    height: 45px;
+    margin: 0;
+    padding: 0;
+    background: #262626;
+
+    &__menu {
+    }
+}
+
+.menu {
+    &__list {
+        display: none;
+        /* Изменяем направление оси в шапке на вертикальное */
+        flex-direction: column;
+        /* Выравниваем элементы в «шапке» влево */
+        align-items: flex-start;
+
+        @media @tablet {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            flex-direction: row;
+            /* «включаем» FlexBox режим */
+            display: flex;
+            /* Размещаем элементы внутри шапки */
+            justify-content: space-between;
+            /* Выравниваем элементы вертикально посередине */
+            align-items: center;
+        }
+        @media @desktop-strict {
+            padding: 0 100px;
+        }
+    }
+    &__item {
+        @media @tablet {
+            list-style-position: inside;
+            display: inline-block;
+            //height: 100%;
+            padding: 6px 10px;
+            margin: 0;
+            font: 14px Arial, sans-serif;
+        }
+        @media @desktop-strict {
+            padding: 12px 10px;
+        }
+    }
+
+    &__item:hover {
+        @media @tablet {
+            background: black;
+        }
+    }
+
+    &__link {
+        @media @tablet {
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #b2b2b2;
+        }
+    }
+}
+
+.footer{
+    width: 100%;
+    background-color: #262626;
+
+    &__img{
+        margin: 15px 10px;
+        width: 17px;
+        height: 17px;
+    }
+
+    &__text{
+        color: white;
+    }
+}
+
+/*
+
+.header_link_bottom {
+    display: none;
+    background: transparent;
+    margin: 15px 0 0 20px;
+    min-width: 110px;
+}
+
+.header_search-form_bottom {
+    display: none;
+    width: 300px;
+    height: 42px;
+    margin: 15px 20px 0 0;
+    padding-top: 10px;
+    float: right;
+}
+
+.search-form_input_bottom {
+    height: 42px;
+    width: 0;
+    margin: 8px 20px 0 0;
+    padding: 0 42px 0 15px;
+    border: none;
+    border-bottom: 2px solid transparent;
+    outline: none;
+    color: white;
+    background: transparent;
+    transition: .4s cubic-bezier(0, .8, 0, 1);
+    position: absolute;
+    top: 50px;
+    right: 0;
+    z-index: 2;
+}
+
+.search-form_button_bottom {
+    background: transparent;
+    border: none;
+    height: 35px;
+    width: 35px;
+    position: absolute;
+    margin: 15px 20px 0 0;
+    top: 50px;
+    right: 12px;
+    cursor: pointer;
+}
+
+.search-form_input_bottom:focus {
+    width: 30%;
+    z-index: 1;
+    border-bottom: 2px solid #F9F0DA;
+}
+
+.search-form_input_bottom::-webkit-input-placeholder {
+    color: #cbb8ff;
+    font-style: italic;
+}
+*/
+
+.page-content {
+
+    &__main-video {
+
+    }
+
+    &__container {
+        @media @tablet {
+            width: 100%;
+            margin-top: 20px;
+        }
+    }
+
+    &__title {
+
+    }
+
+    &__youtube {
+        margin: 0 auto;
+        @media @tablet {
+
+        }
+        @media @desktop-strict {
+            width: 600px;
+        }
+    }
+
+    &__link {
+        @media @tablet {
+            padding: 5px;
+            border: solid 1px #ccc;
+            box-shadow: 0 0 5px #ccc;
+            display: block;
+            position: relative;
+        }
+    }
+
+    &__link:after {
+        @media @tablet {
+            width: 100px;
+            height: 100px;
+            display: block;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -32px;
+            margin-top: -32px;
+            background: url(../img/play.svg) no-repeat;
+            background-size: cover;
+            content: '';
+            opacity: .8;
+        }
+    }
+
+    &__img {
+        @media @tablet {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
+    &__text {
+
+    }
+
+    &__separator {
+
+    }
+
+    &__videos {
+
+    }
+
+}
+
+.videos {
+
+    &__title {
+
+    }
+
+    &__wrap {
+
+    }
+
+    &__link {
+    }
+
+    &__more {
+    }
+
+    &__mobile-invisble {
+    }
+
+    &__img {
+    }
+}
+
+.slider {
+    @media @tablet {
+        width: 100%;
+        max-width: 720px;
+    }
+}
+
+@media @phone {
+    .header_menu {
+        display: none;
+    }
+
+    .header .header_link {
+        display: none;
+    }
+
+    .header_search-form {
+        display: none;
+    }
+
+    .header_link_bottom {
+        display: inline-block;
+    }
+
+    .header_search-form_bottom {
+        display: inline-block;
+    }
+
+    .header_logo {
+        margin-left: 0;
+        left: 100px;
+    }
+
+    .search-form_button_bottom {
+        margin-left: 0;
+        left: 470px;
+    }
+
+    .youtube {
+        width: 300px;
+        height: 250px;
+        left: 150px;
+    }
+}
+
+@media (min-width: 720px) {
+    .menu__list {
+        padding: 0 12px;
+    }
+
+    .youtube {
+        width: 600px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .menu__list {
+        padding: 0 100px;
+    }
+
+    .youtube {
+        width: 600px;
+    }
+}
+
