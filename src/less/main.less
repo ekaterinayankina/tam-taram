@@ -1,4 +1,5 @@
 @import 'media';
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,700%7CPT+Sans+Narrow:700');
 
 body {
     background: #ccc;
@@ -17,12 +18,15 @@ body {
 
 //верхняя часть хедера
 .title {
+    @media @tablet{
+        height: 70px;
+    }
     //кнопка меню для мобильных
     &__toggle {
         display: inline-block;
         background: transparent;
         border: none;
-        padding: 10px 10px;
+        padding: 15px 13px;
         @media @tablet {
             display: none;
         }
@@ -30,7 +34,7 @@ body {
 
     &__icon {
         background: transparent;
-        width: 45px;
+        width: 46px;
         height: 35px;
         @media @tablet {
             display: none;
@@ -43,7 +47,7 @@ body {
         background: transparent;
         padding-left: 20px;
         min-width: 110px;
-        margin-top: 15px;
+        margin-top: 10px;
         @media @tablet {
             transform: translateY(-35px);
         }
@@ -51,25 +55,26 @@ body {
         &__text {
             display: block;
             float: left;
-            font: 11px/5px Arial, sans-serif;
+            font-family: 'PT Sans Narrow', sans-serif;
+            letter-spacing: 0.02em;
+            font-size: smaller;
             padding: 0;
         }
 
         &__text_bottom {
             display: block;
-            font: 10px/7px Arial, sans-serif;
+            font-family: 'PT Sans Bold', sans-serif;
+            font-size: smaller;
             margin-top: 11px;
             padding: 0;
-        }
-
-        &__link {
         }
 
         //галочка
         &__dropdown {
             display: block;
-            float: right;
+            float: left;
             margin-left: 5px;
+            margin-top: 3px;
             width: 10px;
             height: 10px;
         }
@@ -77,12 +82,12 @@ body {
 
     &__logo {
         /* Логотип Tam-Taram */
-        width: 70%;
+        width: 75%;
         display: inline-block;
         position: absolute;
         height: auto;
         overflow: auto;
-        padding: 20px 0;
+        padding: 25px 0;
         margin-left: 20%;
         top: 0;
         left: 0;
@@ -104,8 +109,9 @@ body {
     }
 
     &__search-form {
-        display: inline-block;
-        margin: 12px 20px;
+        position: absolute;
+        right: 10px;
+        top: 10px;
         @media @tablet {
             transform: translateY(-20px);
         }
@@ -113,8 +119,8 @@ body {
 }
 
 .search-form {
-    width: 300px;
-    height: 42px;
+    width: 200px;
+    height: 35px;
     @media @tablet{
         width: 300px;
     }
@@ -136,7 +142,7 @@ body {
     }
 
     &__input:focus {
-        width: 16%;
+        width: 55%;
         z-index: 1;
         border-bottom: 2px solid #F9F0DA;
     }
@@ -154,23 +160,21 @@ body {
         height: 35px;
         width: 35px;
         position: absolute;
+        right: 5px;
         cursor: pointer;
         @media @tablet {
             top: 12px;
             right: 12px;
         }
     }
-
-    &__img {
-    }
-
 }
 
 .navigation-block {
-    height: 45px;
+    height: 50px;
     margin: 0;
     padding: 0;
     background: #262626;
+    position: relative;
 
     &__menu {
     }
@@ -200,6 +204,7 @@ body {
             padding: 0 100px;
         }
     }
+
     &__item {
         @media @tablet {
             list-style-position: inside;
@@ -306,7 +311,6 @@ body {
 .page-content {
 
     &__main-video {
-
     }
 
     &__container {
@@ -316,7 +320,7 @@ body {
         }
     }
 
-    &__title {
+    &__path {
 
     }
 

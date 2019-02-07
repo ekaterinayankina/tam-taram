@@ -47,11 +47,11 @@ const videos = [
 ];
 
 const links = [
-    {title: 'facebook',link: "img/ico_facebook.svg"},
-    {title: 'twitter',link: "img/ico_twitter.svg"},
-    {title: 'pinterest',link: "img/ico_pinterest.svg"},
-    {title: 'youtube',link: "img/ico_youtube.svg"},
-    {title: 'instagram',link: "img/ico_instagram.svg"}
+    {img: "img/ico_facebook.svg", link: '#'},
+    {img: "img/ico_twitter.svg", link: '#'},
+    {img: "img/ico_pinterest.svg", link: '#'},
+    {img: "img/ico_youtube.svg", link: '#'},
+    {img: "img/ico_instagram.svg", link: '#'}
 ];
 %>
 
@@ -115,10 +115,11 @@ const links = [
 <div class="content page-content">
     <div class="page-content__main-video"></div><!-- !!!? -->
     <div class="container page-content__container">
-        <div class="page-content__title">VIDEOS</div>
+        <div class="page-content__path">VIDEOS</div>
 
         <div class="youtube page-content__youtube">
-            <a data-fancybox href='https://youtu.be/9U7FO-op1Bc' class="page-content__link"> <!--class="popupbox-video fancybox fancybox.iframe" rel="group"-->
+            <a data-fancybox href='https://youtu.be/9U7FO-op1Bc' class="page-content__link">
+                <!--class="popupbox-video fancybox fancybox.iframe" rel="group"-->
                 <img src="https://img.youtube.com/vi/9U7FO-op1Bc/mqdefault.jpg" alt="" class="videos__img">
                 <!-- transform: translate(-50%, -50%); -->
             </a>
@@ -136,31 +137,37 @@ const links = [
         <div class="page-content__videos videos">
             <div class="videos__title"><%= item.title %></div>
             <div class="videos__wrap slider">
-                <% item.link.forEach( (video,i) => { %>
-                <% if (i<3) {%>
-                <a data-fancybox href="https://youtu.be/<%=video%>" class="videos__link">
-                    <img src="https://img.youtube.com/vi/<%=video%>/mqdefault.jpg" alt="" class="videos__img">
-                </a>
-                <% } else { %>
-                    <a data-fancybox href="https://youtu.be/<%=video%>" class="videos__link videos__mobile-invisble">
-                        <img src="https://img.youtube.com/vi/<%=video%>/mqdefault.jpg" alt="" class="videos__img">
-                    </a>
-                <% } %>
+                <% item.link.forEach( (video, i) => { %>
+                    <% if (i < 3) { %>
+                        <a data-fancybox href="https://youtu.be/<%= video %>" class="videos__link">
+                            <img src="https://img.youtube.com/vi/<%= video %>/mqdefault.jpg" alt="" class="videos__img">
+                        </a>
+                    <% } else { %>
+                        <a data-fancybox href="https://youtu.be/<%= video %>" class="videos__link videos__mobile-invisble">
+                            <img src="https://img.youtube.com/vi/<%= video %>/mqdefault.jpg" alt="" class="videos__img">
+                        </a>
+                    <% } %>
                 <% }) %>
             </div>
             <button class="video__more">LOAD MORE</button>
         </div>
     <% }) %>
-
+</div>
 
 <footer class="footer">
-    <% links.forEach((item) => { %>
-        <img src="<%=item.link%>" alt="" class="footer__img">
+    <div class="share">
+        <% links.forEach((item) => { %>
+            <a class="share__link" href="<%= item.link %>">
+                <img src="<%= item.img %>" alt="" class="footer__img">
+            </a>
+    </div>
+
     <% }) %>
     <div class="footer__text">
-        LOCATION: UNITED STATES  <br>
+        LOCATION: UNITED STATES <br>
         LANGUAGE: ENGLISH
     </div>
+
 </footer>
 <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.js"></script>
@@ -168,8 +175,7 @@ const links = [
 <script src="js/scripts.js"></script>
 
 
-
- <!--Слайдер -->
+<!--Слайдер -->
 <script type="text/javascript">
     $(document).ready(function () {
 
@@ -182,7 +188,6 @@ const links = [
             if (slickLoaded) {
                 return;
             }
-
 
 
             slickLoaded = true;
