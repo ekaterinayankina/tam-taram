@@ -70,12 +70,6 @@ const links = [
 
     </div>
     <div class="navigation-block">
-        <!--<div class="header_link_bottom navigation-block">
-            <a class="text">NEAREST SALON </a>
-            <a href="/"><img src="img/ico_dropdown.svg" alt="->" class="drop_down"></a>
-            <a class="bottom_text">Plush Salon 92101</a>
-        </div>
-        -->
         <div class=" title__nearest">
             <span class=" title__nearest__text">NEAREST SALON </span>
             <a href="/" class="title__nearest__link">
@@ -102,56 +96,52 @@ const links = [
                 <% }) %>
             </ul>
         </nav>
-        <!--
-        <div class="header_search-form_bottom" action="#" method="get">
-            <input class="search-form_input_bottom" type="text" placeholder="Введите запрос..">
-            <button class="search-form_button_bottom" type="submit">
-                <img src="img/ico_search.svg" alt="Поиск">
-            </button>
-        </div>
-        -->
     </div>
 </div>
-<div class="page-content__path">HOME/VIDEOS</div>
+
+
+<div class="page-content__path">
+    <nobr class="page-content__path__path-text">HOME /</nobr>
+    <nobr class="page-content__path__path-text">VIDEOS</nobr>
+</div>
+
 <div class="page-content">
-    <div class="page-content__main-video"></div><!-- !!!? -->
-    <div class="container page-content__container">
-        <div class="videos__title">VIDEOS</div>
-        <div class="youtube page-content__youtube">
-            <a data-fancybox href='https://youtu.be/9U7FO-op1Bc' class="page-content__link">
-                <!--class="popupbox-video fancybox fancybox.iframe" rel="group"-->
-                <img src="https://img.youtube.com/vi/9U7FO-op1Bc/mqdefault.jpg" alt="" class="videos__img">
+    <div class="main-content page-content__main-content">
+        <div class="main-content__title">VIDEOS</div>
+        <div class="youtube main-content__youtube">
+            <a data-fancybox href='https://youtu.be/9U7FO-op1Bc' class="main-content__link">
+                <img src="https://img.youtube.com/vi/9U7FO-op1Bc/mqdefault.jpg" alt="" class="main-content__img">
                 <!-- transform: translate(-50%, -50%); -->
             </a>
         </div>
-        <div class="page-content__text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellensque lobortis nisl at ullamcorper
+        <div class="main-content__text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellensque lobortis, nisl at ullamcorper
             egestas, felisadi piscing dolor, a interdum lorem urna quis magna.
         </div>
-        <div class="page-content__separator" style="width:100%;height:2px;background-color:black;"></div>
-
-        <!--  -->
+        <div class="main-content__separator"></div>
     </div>
-
-    <% videos.forEach((item) => { %>
-        <div class="page-content__videos videos">
-            <div class="videos__title"><%= item.title %></div>
-            <div class="videos__wrap slider">
-                <% item.link.forEach( (video, i) => { %>
-                    <% if (i < 3) { %>
-                        <a data-fancybox href="https://youtu.be/<%= video %>" class="videos__link">
-                            <img src="https://img.youtube.com/vi/<%= video %>/mqdefault.jpg" alt="" class="videos__img">
-                        </a>
-                    <% } else { %>
-                        <a data-fancybox href="https://youtu.be/<%= video %>" class="videos__link videos__mobile-invisble">
-                            <img src="https://img.youtube.com/vi/<%= video %>/mqdefault.jpg" alt="" class="videos__img">
-                        </a>
-                    <% } %>
-                <% }) %>
+    <div class="other-content page-content__other-content">
+        <% videos.forEach((item) => { %>
+            <div class="other-content__videos videos">
+                <div class="videos__title"><%= item.title %></div>
+                <div class="videos__wrap slider">
+                    <% item.link.forEach( (video, i) => { %>
+                        <% if (i < 3) { %>
+                            <a data-fancybox href="https://youtu.be/<%= video %>" class="videos__link">
+                                <img src="https://img.youtube.com/vi/<%= video %>/mqdefault.jpg" alt="" class="videos__img">
+                            </a>
+                        <% } else { %>
+                            <a data-fancybox href="https://youtu.be/<%= video %>"
+                               class="videos__link videos__mobile-invisble">
+                                <img src="https://img.youtube.com/vi/<%= video %>/mqdefault.jpg" alt="" class="videos__img">
+                            </a>
+                        <% } %>
+                    <% }) %>
+                </div>
+                <button class="videos__more">LOAD MORE</button>
             </div>
-            <button class="video__more">LOAD MORE</button>
-        </div>
-    <% }) %>
+        <% }) %>
+    </div>
 </div>
 
 <footer class="footer">
@@ -189,7 +179,6 @@ const links = [
                 return;
             }
 
-
             slickLoaded = true;
             $('.slider').slick({
                 infinite: false,
@@ -210,7 +199,7 @@ const links = [
                     {
                         //при какой ширине экрана нужно включать настройки
                         breakpoint: 320,
-                        settings: "unslick"
+                        settings: 'unslick'
                     }
                 ]
             });
