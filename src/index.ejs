@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
     <link rel="stylesheet" href="css/main.css">
 </head>
-<% const menuItems = [
+<%
+const menuItems = [
     {title: 'HairCare', link: '#'},
     {title: 'Color', link: '#'},
     {title: 'Styling', link: '#'},
@@ -111,12 +112,11 @@ const links = [
         -->
     </div>
 </div>
-
-<div class="content page-content">
+<div class="page-content__path">HOME/VIDEOS</div>
+<div class="page-content">
     <div class="page-content__main-video"></div><!-- !!!? -->
     <div class="container page-content__container">
-        <div class="page-content__path">VIDEOS</div>
-
+        <div class="videos__title">VIDEOS</div>
         <div class="youtube page-content__youtube">
             <a data-fancybox href='https://youtu.be/9U7FO-op1Bc' class="page-content__link">
                 <!--class="popupbox-video fancybox fancybox.iframe" rel="group"-->
