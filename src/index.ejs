@@ -54,15 +54,21 @@ const links = [
     {img: "img/ico_youtube.svg", link: '#'},
     {img: "img/ico_instagram.svg", link: '#'}
 ];
+
+const footerNavigation = [
+    {title: 'PRIVACY POLICY', link: '#'},
+    {title: 'TERMS OF USE', link: '#'},
+    {title: 'CONTACT US', link: '#'},
+    {title: 'NEWSLETTER', link: '#'},
+    {title: 'SITEMAP', link: '#'}
+]
 %>
 
 <body class="page">
 <div class="header">
     <div class="title">
         <!-- Кнопка меню для мобильных -->
-        <button data-collapse data-target="#navigation" class=" title__toggle">
-            <img src="img/ico_menu.svg" alt="=" class=" title__icon">
-        </button>
+        <button data-collapse data-target="#navigation" class="title__toggle" onclick="menuEmergence()"></button>
 
         <div class="title__logo logo">
             <img src="img/logo.svg" alt="TamTaram logo" class="logo__img title__logo__img">
@@ -75,7 +81,7 @@ const links = [
             <a href="/" class="title__nearest__link">
                 <img src="img/ico_dropdown.svg" alt="->" class=" title__nearest__dropdown">
             </a>
-            <span class="title__nearest__text_bottom">Plush Salon 92101</span>
+            <address class="title__nearest__text_bottom">Plush Salon 92101 </address>
         </div>
         <form class="title__search-form search-form" action="#" method="get">
             <input class="search-form__input" type="text" placeholder="Введите запрос..">
@@ -89,8 +95,6 @@ const links = [
             <ul class="menu__list">
                 <% menuItems.forEach((item) => { %>
                     <li class="menu__item">
-                        <!--margin > li-->
-                        <!--padding > a-->
                         <a class="menu__link" href="<%= item.link %>"><%= item.title %></a>
                     </li>
                 <% }) %>
@@ -111,7 +115,6 @@ const links = [
         <div class="youtube main-content__youtube">
             <a data-fancybox href='https://youtu.be/9U7FO-op1Bc' class="main-content__link">
                 <img src="https://img.youtube.com/vi/9U7FO-op1Bc/mqdefault.jpg" alt="" class="main-content__img">
-                <!-- transform: translate(-50%, -50%); -->
             </a>
         </div>
         <div class="main-content__text">
@@ -128,12 +131,14 @@ const links = [
                     <% item.link.forEach( (video, i) => { %>
                         <% if (i < 3) { %>
                             <a data-fancybox href="https://youtu.be/<%= video %>" class="videos__link">
-                                <img src="https://img.youtube.com/vi/<%= video %>/mqdefault.jpg" alt="" class="videos__img">
+                                <img src="https://img.youtube.com/vi/<%= video %>/mqdefault.jpg" alt=""
+                                     class="videos__img">
                             </a>
                         <% } else { %>
                             <a data-fancybox href="https://youtu.be/<%= video %>"
                                class="videos__link videos__mobile-invisble">
-                                <img src="https://img.youtube.com/vi/<%= video %>/mqdefault.jpg" alt="" class="videos__img">
+                                <img src="https://img.youtube.com/vi/<%= video %>/mqdefault.jpg" alt=""
+                                     class="videos__img">
                             </a>
                         <% } %>
                     <% }) %>
@@ -145,17 +150,21 @@ const links = [
 </div>
 
 <footer class="footer">
-    <div class="share">
+    <div class="footer__share share">
         <% links.forEach((item) => { %>
             <a class="share__link" href="<%= item.link %>">
-                <img src="<%= item.img %>" alt="" class="footer__img">
+                <img src="<%= item.img %>" alt="" class="share__img">
             </a>
+        <% }) %>
     </div>
-
-    <% }) %>
-    <div class="footer__text">
+    <div class="footer__location">
         LOCATION: UNITED STATES <br>
         LANGUAGE: ENGLISH
+    </div>
+    <div class="footer__navigation">
+        <% footerNavigation.forEach((item) => { %>
+            <a class="footer__navigation__link" href="<%= item.link %>"><%= item.title %></a>
+        <% }) %>
     </div>
 
 </footer>
@@ -167,45 +176,7 @@ const links = [
 
 <!--Слайдер -->
 <script type="text/javascript">
-    $(document).ready(function () {
 
-        let slickLoaded = false;
-        $(window).resize(function () {
-            if (screen.width < 768) {
-                slickLoaded = false;
-                return;
-            }
-            if (slickLoaded) {
-                return;
-            }
-
-            slickLoaded = true;
-            $('.slider').slick({
-                infinite: false,
-                //количество слайдов для показа
-                slidesToShow: 4,
-                //сколько слайдов за раз перелистнется
-                slidesToScroll: 2,
-                responsive: [
-                    {
-                        //при какой ширине экрана нужно включать настройки
-                        breakpoint: 600,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 1,
-                            infinite: true,
-                        }
-                    },
-                    {
-                        //при какой ширине экрана нужно включать настройки
-                        breakpoint: 320,
-                        settings: 'unslick'
-                    }
-                ]
-            });
-        });
-
-    });
 </script>
 </body>
 </html>

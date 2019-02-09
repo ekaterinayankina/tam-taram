@@ -6,6 +6,10 @@
 //font-family: 'PT Sans', sans-serif;
 //font-family: 'PT Sans Bold', sans-serif;
 
+//TODO:
+//красный текст
+//допилить load more - показывать остальные li у данного ul
+
 body {
     background: #ccc;
 }
@@ -25,10 +29,10 @@ body {
 //верхняя часть хедера
 .title {
     height: 70px;
-    @media @tablet{
+    @media @tablet {
         height: 70px;
     }
-    @media @desktop{
+    @media @desktop {
         height: 57px;
     }
 
@@ -37,19 +41,34 @@ body {
         display: inline-block;
         background: transparent;
         border: none;
-        padding: 15px 13px;
+        padding: 20px 16px;
+        cursor: pointer;
+        transition: color .25s ease-in-out;
         @media @tablet {
             display: none;
         }
     }
+    //текст кнопки
+    &__toggle:after {
+        content: '\2630\2630';
+        text-decoration: none;
+        font-size: 25px;
+        letter-spacing: -7.2px;
+        color: white;
+    }
 
-    &__icon {
-        background: transparent;
-        width: 46px;
-        height: 35px;
-        @media @tablet {
-            display: none;
-        }
+    // цвет текста при наведении
+    &__toggle:hover {
+        color: #f4f4f4;
+    }
+
+    &__toggle:active {
+        background-color: #262626;
+        content: '\2715';
+        text-decoration: none;
+        font-size: 25px;
+        letter-spacing: -7.2px;
+        color: white;
     }
 
     //адресс-ссылка
@@ -75,12 +94,12 @@ body {
             letter-spacing: 0.02em;
             font-size: smaller;
             padding: 0;
-            @media @tablet{
+            @media @tablet {
                 letter-spacing: 0.005em;
                 font-family: 'PT Sans Bold', sans-serif;
                 font-size: small;
             }
-            @media @desktop{
+            @media @desktop {
                 font-family: 'PT Sans Bold', sans-serif;
                 font-size: 9px;
                 letter-spacing: 0.005em;
@@ -92,6 +111,7 @@ body {
             font-family: 'PT Sans Bold', sans-serif;
             font-size: smaller;
             margin-top: 11px;
+            font-style: normal;
             padding: 0;
             @media @desktop {
                 font-size: 10.5px;
@@ -145,7 +165,7 @@ body {
                 margin-top: 23px;
                 width: 350px;
             }
-            @media @desktop{
+            @media @desktop {
                 margin-top: 16px;
                 height: 35px;
             }
@@ -159,7 +179,7 @@ body {
         @media @tablet {
             transform: translateY(-75px);
         }
-        @media @desktop{
+        @media @desktop {
             right: 15px;
             transform: translateY(-70px);
         }
@@ -169,10 +189,10 @@ body {
 .search-form {
     width: 200px;
     height: 35px;
-    @media @tablet{
+    @media @tablet {
         width: 300px;
     }
-    @media @desktop{
+    @media @desktop {
         width: 500px;
     }
 
@@ -196,7 +216,7 @@ body {
         width: 55%;
         z-index: 1;
         border-bottom: 2px solid #F9F0DA;
-        @media @tablet{
+        @media @tablet {
             width: 47%;
         }
     }
@@ -229,10 +249,10 @@ body {
     padding: 0;
     background: #262626;
     position: relative;
-    @media @tablet{
+    @media @tablet {
         height: 43px;
     }
-    @media @desktop{
+    @media @desktop {
         height: 35px;
     }
 
@@ -243,7 +263,7 @@ body {
         left: 0;
         bottom: 0;
 
-        @media @desktop{
+        @media @desktop {
             right: 150px;
             left: 150px;
         }
@@ -252,12 +272,24 @@ body {
 
 .menu {
     &__list {
-        display: none;
-        /* Изменяем направление оси в шапке на вертикальное */
-        flex-direction: column;
-        /* Выравниваем элементы в «шапке» влево */
-        align-items: flex-start;
-
+        width: 320px;
+        min-width: 320px;
+        /* фиксируем и выставляем высоту панели на максимум */
+        height: 100%;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        margin: 0;
+        /* сдвигаем (прячем) панель относительно левого края страницы */
+        left: -360px;
+        /* внутренние отступы */
+        padding: 15px 0;
+        /* плавный переход смещения панели */
+        transition: left 0.3s;
+        /* определяем цвет фона панели */
+        background: #262626;
+        /* поверх других элементов */
+        z-index: 2000;
         @media @tablet {
             margin: 0;
             padding: 0;
@@ -273,6 +305,13 @@ body {
     }
 
     &__item {
+        list-style-position: inside;
+        display: block;
+        padding: 13px 15px;
+        margin: 0;
+        font-family: 'PT Sans', sans-serif;
+        font-size: 12.5px;
+
         @media @tablet {
             list-style-position: inside;
             display: inline-block;
@@ -289,17 +328,13 @@ body {
     }
 
     &__item:hover {
-        @media @tablet {
-            background: black;
-        }
+        background: black;
     }
 
     &__link {
-        @media @tablet {
-            text-transform: uppercase;
-            text-decoration: none;
-            color: #b2b2b2;
-        }
+        text-transform: uppercase;
+        text-decoration: none;
+        color: #b2b2b2;
     }
 }
 
@@ -320,7 +355,8 @@ body {
             margin-top: 20px;
         }
     }
-    &__other-content{
+
+    &__other-content {
 
     }
 
@@ -328,13 +364,14 @@ body {
         margin-left: 7px;
         margin-top: 15px;
 
-        &__path-text{
+        &__path-text {
             font-family: 'PT Sans Bold', sans-serif;
             font-size: 11px;
             font-stretch: ultra-condensed;
             letter-spacing: 0.01px;
         }
-        &__path-text:nth-child(2n){
+
+        &__path-text:nth-child(2n) {
             color: red;
         }
     }
@@ -349,10 +386,10 @@ body {
         font-family: 'PT Sans Narrow', sans-serif;
         font-size: 28px;
         font-weight: bolder;
-        margin-left: 5px;
-        letter-spacing: 1.2px;
+        letter-spacing: 2.2px;
         margin-bottom: 5px;
         margin-top: 0px;
+        margin-left: 0px;
         @media @tablet {
             font-size: 98px;
         }
@@ -373,30 +410,23 @@ body {
     }
 
     &__link {
-        @media @tablet {
-            padding: 5px;
-            border: solid 1px #ccc;
-            box-shadow: 0 0 5px #ccc;
-            display: block;
-            position: relative;
-        }
+        padding: 5px;
+        display: block;
+        position: relative;
     }
 
     &__link:after {
-        @media @tablet {
-            width: 100px;
-            height: 100px;
-            display: block;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            margin-left: -32px;
-            margin-top: -32px;
-            background: url(../img/play.svg) no-repeat;
-            background-size: cover;
-            content: '';
-            opacity: .8;
-        }
+        width: 60px;
+        height: 60px;
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        background: url(../img/play.svg) no-repeat;
+        background-size: cover;
+        content: '';
+        opacity: .8;
+        transform: translate(-50%, -50%);
     }
 
     &__img {
@@ -417,22 +447,26 @@ body {
     }
 
 
-
     &__separator {
         position: absolute;
         top: 300px;
-        width:100%;
-        height:2px;
-        background-color:black;
+        width: 100%;
+        height: 2px;
+        background-color: black;
     }
 }
 
-.other-content{
+.other-content {
     position: absolute;
     top: 300px;
+
     &__videos {
     }
+
+
 }
+
+
 .videos {
     text-align: center;
 
@@ -442,7 +476,7 @@ body {
         font-size: 28px;
         font-weight: bolder;
         margin-left: 5px;
-        letter-spacing: 1.2px;
+        letter-spacing: 1.0px;
         margin-bottom: 5px;
         margin-top: 60px;
         @media @tablet {
@@ -450,13 +484,14 @@ body {
         }
     }
 
+
     &__wrap {
     }
 
     &__link:nth-child(3) {
         > .videos__img {
-           margin-bottom: 22px;
-       }
+            margin-bottom: 22px;
+        }
     }
 
     &__link {
@@ -488,6 +523,21 @@ body {
     }
 }
 
+.videos:nth-child(2) {
+    > .videos__title {
+        margin-top: 80px;
+        margin-bottom: 7px;
+        letter-spacing: 3.4px;
+    }
+}
+
+.videos:nth-child(3) {
+    > .videos__title {
+        margin-top: 80px;
+        letter-spacing: 3.4px;
+    }
+}
+
 .slider {
     @media @tablet {
         width: 100%;
@@ -496,19 +546,49 @@ body {
 }
 
 
-.footer{
+.footer {
     position: absolute;
-    top: 2700px;
+    top: 3070px;
+    //top: 3120px;
     width: 100%;
     background-color: #262626;
+    color: white;
+    padding: 0 20px 150px;
 
-    &__img{
-        margin: 15px 10px;
-        width: 17px;
-        height: 17px;
+    &__share {
+        margin: 30px 0px;
     }
 
-    &__text{
-        color: white;
+    &__location {
+        margin-left: 6px;
+        font-family: 'PT Sans Bold', sans-serif;
+        font-size: 9.6px;
+    }
+
+    &__navigation {
+        margin: 37px 6px 0;
+        font-family: 'PT Sans', sans-serif;
+        font-size: 11.3px;
+
+        &__link {
+            text-transform: uppercase;
+            text-decoration: none;
+            color: white;
+            margin-right: 6px;
+        }
+    }
+}
+
+.share {
+    display: inline-block;
+
+    &__link {
+        margin-right: 16px;
+        text-decoration: none;
+    }
+
+    &__img {
+        width: 20px;
+        height: 20px;
     }
 }
