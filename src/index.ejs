@@ -46,7 +46,6 @@ const videos = [
             "6oPBFnsqJW8"]
     }
 ];
-
 const links = [
     {img: "img/ico_facebook.svg", link: '#'},
     {img: "img/ico_twitter.svg", link: '#'},
@@ -68,7 +67,7 @@ const footerNavigation = [
 <div class="header">
     <div class="title">
         <!-- Кнопка меню для мобильных -->
-        <button data-collapse data-target="#navigation" class="title__toggle" onclick="menuEmergence()"></button>
+        <button data-collapse data-target="#navigation" class="title__toggle"></button>
 
         <div class="title__logo logo">
             <img src="img/logo.svg" alt="TamTaram logo" class="logo__img title__logo__img">
@@ -102,13 +101,10 @@ const footerNavigation = [
         </nav>
     </div>
 </div>
-
-
 <div class="page-content__path">
     <nobr class="page-content__path__path-text">HOME /</nobr>
     <nobr class="page-content__path__path-text">VIDEOS</nobr>
 </div>
-
 <div class="page-content">
     <div class="main-content page-content__main-content">
         <div class="main-content__title">VIDEOS</div>
@@ -123,7 +119,7 @@ const footerNavigation = [
         </div>
         <div class="main-content__separator"></div>
     </div>
-    <div class="other-content page-content__other-content">
+  <div class="other-content page-content__other-content">
         <% videos.forEach((item) => { %>
             <div class="other-content__videos videos">
                 <div class="videos__title"><%= item.title %></div>
@@ -148,7 +144,6 @@ const footerNavigation = [
         <% }) %>
     </div>
 </div>
-
 <footer class="footer">
     <div class="footer__share share">
         <% links.forEach((item) => { %>
@@ -168,15 +163,11 @@ const footerNavigation = [
     </div>
 
 </footer>
+
 <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.js"></script>
 <script src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
 <script src="js/scripts.js"></script>
 
-
-<!--Слайдер -->
-<script type="text/javascript">
-
-</script>
 </body>
 </html>
