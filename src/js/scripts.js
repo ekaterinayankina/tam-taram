@@ -43,9 +43,9 @@ $(document).ready(function () {
             prevArrow: '<img class="slick-prev" src="img/left-arrow.svg">',
             nextArrow: '<img class="slick-next" src="img/right-arrow.svg">',
             //количество слайдов для показа
-            slidesToShow: 4,
+            slidesToShow: 3,
             //сколько слайдов за раз перелистнется
-            slidesToScroll: 2,
+            slidesToScroll: 1,
             responsive: [
                 {
                     //при какой ширине экрана нужно включать настройки
