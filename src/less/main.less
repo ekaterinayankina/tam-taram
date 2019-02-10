@@ -219,6 +219,7 @@ body {
         @media @tablet {
             width: 47%;
         }
+
     }
 
     &__input::-webkit-input-placeholder {
@@ -526,6 +527,17 @@ body {
 
 
     &__wrap {
+        @media @tablet {
+            height: 180px;
+            width: 100%;
+        }
+    }
+
+    &__link {
+        @media @tablet {
+            height: 100%;
+            width: 100%;
+        }
     }
 
     &__link:nth-child(3) {
@@ -550,6 +562,9 @@ body {
         letter-spacing: -1px;
         font-size: 13px;
         font-family: 'PT Sans', sans-serif;
+        @media @tablet {
+            display:none;
+        }
     }
 
     &__mobile-invisble {
@@ -560,6 +575,9 @@ body {
         width: 300px;
         height: 178px;
         margin-bottom: 45px;
+        @media @tablet {
+            margin-left: 23px;
+        }
     }
 }
 
@@ -568,7 +586,11 @@ body {
         margin-top: 80px;
         margin-bottom: 7px;
         letter-spacing: 3.4px;
+        @media @tablet{
+            margin-top: 70px;
+        }
     }
+
 }
 
 .videos:nth-child(3) {
@@ -595,21 +617,46 @@ body {
     background-color: #262626;
     color: white;
     padding: 0 20px;
+    @media @tablet {
+        position: unset;
+        margin-top: 75px;
+        text-align: center;
+        color: #b2b2b2;
+    }
 
     &__share {
         margin: 30px 0px;
+        @media @tablet {
+            float: none;
+            margin: 17px 0;
+            margin-right: 50px;
+            text-align: center;
+        }
     }
 
     &__location {
         margin-left: 6px;
         font-family: 'PT Sans Bold', sans-serif;
         font-size: 9.6px;
+        @media @tablet {
+            float: right;
+            margin: 12px 35px 0;
+            font-size: 10px;
+            text-align: right;
+        }
     }
 
     &__navigation {
         margin: 37px 6px 0;
         font-family: 'PT Sans', sans-serif;
         font-size: 11.3px;
+        @media @tablet {
+            float: left;
+            width: 215px;
+            margin: 12px 0 0;
+            text-align: left;
+            color: #b2b2b2;
+        }
 
         &__link {
             text-transform: uppercase;
@@ -632,4 +679,20 @@ body {
         width: 20px;
         height: 20px;
     }
+}
+
+//кнопки slick
+.slick-track {
+}
+
+.slick-prev {
+    width: 25px;
+    height: 25px;
+    margin: 0px 10px;
+}
+
+.slick-next {
+    width: 25px;
+    height: 25px;
+    margin: 0px 10px;
 }

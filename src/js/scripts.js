@@ -1,22 +1,22 @@
 $(document).ready(function () {
     //Mobile menu
-    $('.title__toggle').click(function() {
-        $('.menu__list').css({"left":"0px"});
+    $('.title__toggle').click(function () {
+        $('.menu__list').css({'left': '0px'});
     });
-    $('.menu__item').click(function() {
-        $('.menu__list').css({"left":"-360px"});
+    $('.menu__item').click(function () {
+        $('.menu__list').css({'left': '-360px'});
     });
 
     //LoadMore
-    $('.videos__more').click(function() {
+    $('.videos__more').click(function () {
         //найти родителя кнопки
-        let $buttonParent = $(this).parent();
+        const $buttonParent = $(this).parent();
         //найти ребенка с классом videos__wrap
-        let $slider = $buttonParent.children(".videos__wrap");
+        const $slider = $buttonParent.children('.videos__wrap');
         //найти его детей с классом videos__mobile-invisble
-        let $invisibleVideos = $slider.children(".videos__mobile-invisble");
+        const $invisibleVideos = $slider.children('.videos__mobile-invisble');
         //поменять у них видимость
-        $invisibleVideos.toggleClass("videos__mobile-invisble");
+        $invisibleVideos.toggleClass('videos__mobile-invisble');
         //исчезновение кнопки
         $(this).hide();
 
@@ -32,10 +32,16 @@ $(document).ready(function () {
         if (slickLoaded) {
             return;
         }
-
         slickLoaded = true;
+
         $('.slider').slick({
             infinite: false,
+            аccessibility: true,
+            arrows: true,
+            cssEase: 'ease-out',
+            easing:  'easeInOutSine',
+            prevArrow: '<img class="slick-prev" src="img/left-arrow.svg">',
+            nextArrow: '<img class="slick-next" src="img/right-arrow.svg">',
             //количество слайдов для показа
             slidesToShow: 4,
             //сколько слайдов за раз перелистнется
@@ -43,7 +49,7 @@ $(document).ready(function () {
             responsive: [
                 {
                     //при какой ширине экрана нужно включать настройки
-                    breakpoint: 800,
+                    breakpoint: 769,
                     settings: {
                         slidesToShow: 2,
                         slidesToScroll: 1,
@@ -58,5 +64,5 @@ $(document).ready(function () {
             ]
         });
     });
-
 });
+
