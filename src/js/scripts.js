@@ -7,6 +7,14 @@ $(document).ready(function () {
         $('.menu__list').css({'left': '-360px'});
     });
 
+    //Красные слова в заголовках
+    $('.videos__title').each(function(){
+        var newText = $(this).text().split(' ').join('</span> <span>');
+        newText = '<span>' + newText + '</span>';
+        $(this).html(newText);
+    });
+
+
     //LoadMore
     $('.videos__more').click(function () {
         //найти родителя кнопки
@@ -23,23 +31,36 @@ $(document).ready(function () {
     });
 
     //Slider
-    let slickLoaded = false;
+
+    //при перезагрузке страницы
+    let sliderIsLive = true;
+    console.log (screen.width);
+    if (screen.width < 768) sliderIsLive = false;
+    loadSlick();
+
+    //при изменении размеров окна
     $(window).resize(function () {
         if (screen.width < 768) {
-            slickLoaded = false;
+            $('.slider').slick('unslick');
+            sliderIsLive = false;
+            console.log("unslick")
             return;
         }
-        if (slickLoaded) {
-            return;
-        }
-        slickLoaded = true;
+         else sliderIsLive = true;
+        console.log(sliderIsLive);
+        loadSlick();
+    });
 
+    function loadSlick() {
+        console.log(sliderIsLive);
+        if (!sliderIsLive) {return;}
+        console.log("slick on");
         $('.slider').slick({
             infinite: false,
             аccessibility: true,
             arrows: true,
             cssEase: 'ease-out',
-            easing:  'easeInOutSine',
+            easing: 'easeInOutSine',
             prevArrow: '<img class="slick-prev" src="img/left-arrow.svg">',
             nextArrow: '<img class="slick-next" src="img/right-arrow.svg">',
             //количество слайдов для показа
@@ -48,7 +69,7 @@ $(document).ready(function () {
             slidesToScroll: 1,
             responsive: [
                 {
-                    //при какой ширине экрана нужно включать настройки
+                    //если экран меньше laptop
                     breakpoint: 769,
                     settings: {
                         slidesToShow: 2,
@@ -57,12 +78,12 @@ $(document).ready(function () {
                     }
                 },
                 {
-                    //при какой ширине экрана нужно включать настройки
-                    breakpoint: 320,
+                    //если экран меньше tablet, то slick off
+                    breakpoint: 767,
                     settings: 'unslick'
                 }
             ]
         });
-    });
+    }
 });
 
