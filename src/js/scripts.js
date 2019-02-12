@@ -1,14 +1,14 @@
 $(document).ready(function () {
     //Mobile menu
     $('.title__toggle').click(function () {
-        $('.menu__list').css({'left': '0px'});
+        $('.menu__list').toggleClass('__active');
     });
     $('.menu__item').click(function () {
-        $('.menu__list').css({'left': '-360px'});
+        $('.menu__list').toggleClass('__active');
     });
 
     //Красные слова в заголовках
-    $('.videos__title').each(function(){
+    $('.videos__title').each(function () {
         var newText = $(this).text().split(' ').join('</span> <span>');
         newText = '<span>' + newText + '</span>';
         $(this).html(newText);
@@ -34,7 +34,7 @@ $(document).ready(function () {
 
     //при перезагрузке страницы
     let sliderIsLive = true;
-    console.log (screen.width);
+    console.log(screen.width);
     if (screen.width < 768) sliderIsLive = false;
     loadSlick();
 
@@ -43,26 +43,29 @@ $(document).ready(function () {
         if (screen.width < 768) {
             $('.slider').slick('unslick');
             sliderIsLive = false;
-            console.log("unslick")
+            console.log('unslick');
             return;
-        }
-         else sliderIsLive = true;
+        } else sliderIsLive = true;
         console.log(sliderIsLive);
+
         loadSlick();
     });
 
     function loadSlick() {
         console.log(sliderIsLive);
-        if (!sliderIsLive) {return;}
-        console.log("slick on");
+        if (!sliderIsLive) {
+            return;
+        }
+        sliderIsLive=true;
+        console.log('slick on');
         $('.slider').slick({
             infinite: false,
-            аccessibility: true,
+            accessibility: true,
             arrows: true,
             cssEase: 'ease-out',
             easing: 'easeInOutSine',
-            prevArrow: '<img class="slick-prev" src="img/left-arrow.svg">',
-            nextArrow: '<img class="slick-next" src="img/right-arrow.svg">',
+            prevArrow: '<div class="videos-prev" ></div>',
+            nextArrow: '<div class="videos-next" ></div>',
             //количество слайдов для показа
             slidesToShow: 3,
             //сколько слайдов за раз перелистнется
@@ -70,16 +73,14 @@ $(document).ready(function () {
             responsive: [
                 {
                     //если экран меньше laptop
-                    breakpoint: 769,
+                    breakpoint: 1000,
                     settings: {
                         slidesToShow: 2,
-                        slidesToScroll: 1,
-                        infinite: true,
                     }
                 },
                 {
                     //если экран меньше tablet, то slick off
-                    breakpoint: 767,
+                    breakpoint: 768,
                     settings: 'unslick'
                 }
             ]

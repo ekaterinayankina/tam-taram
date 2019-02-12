@@ -1,13 +1,19 @@
 @import 'media';
 @import url('https://fonts.googleapis.com/css?family=PT+Sans:400,700%7CPT+Sans+Narrow:700');
 
-//font-family: 'PT Sans Narrow', sans-serif;
-//font-family: 'PT Sans', sans-serif;
-//font-family: 'PT Sans Bold', sans-serif;
+@font-family1: 'PT Sans Narrow', sans-serif;
+@font-family2: 'PT Sans', sans-serif;
+@font-family3: 'PT Sans Bold', sans-serif;
+
 
 //TODO:
+//change all classes as a__b__c => a__b b b__c
+//mobile video
+//add debounce
+//slider buttons in gray
 //mobile menu - exit
 //slider reloading while changing width --??
+
 body {
     background: #ccc;
 }
@@ -87,17 +93,17 @@ body {
         &__text {
             display: block;
             float: left;
-            font-family: 'PT Sans Narrow', sans-serif;
+            font-family: @font-family1;
             letter-spacing: .02em;
             font-size: smaller;
             padding: 0;
             @media @tablet {
                 letter-spacing: .005em;
-                font-family: 'PT Sans Bold', sans-serif;
+                font-family: @font-family3;
                 font-size: small;
             }
             @media @desktop {
-                font-family: 'PT Sans Bold', sans-serif;
+                font-family: @font-family3;
                 font-size: 9px;
                 letter-spacing: .005em;
             }
@@ -105,7 +111,7 @@ body {
 
         &__text_bottom {
             display: block;
-            font-family: 'PT Sans Bold', sans-serif;
+            font-family: @font-family3;
             font-size: smaller;
             margin-top: 11px;
             font-style: normal;
@@ -277,6 +283,10 @@ body {
     }
 }
 
+.menu__list.__active {
+    left: 0;
+}
+
 .menu {
     &__list {
         width: 320px;
@@ -336,7 +346,7 @@ body {
         display: block;
         padding: 13px 15px;
         margin: 0;
-        font-family: 'PT Sans', sans-serif;
+        font-family: @font-family2;
         font-size: 12.5px;
 
         @media @tablet {
@@ -344,18 +354,18 @@ body {
             display: inline-block;
             padding: 13px 15px;
             margin: 0;
-            font-family: 'PT Sans', sans-serif;
+            font-family: @font-family2;
             font-size: 12.5px;
         }
         @media @desktop {
             padding: 8px 7px;
-            font-family: 'PT Sans', sans-serif;
+            font-family: @font-family2;
             font-size: 15px;
         }
 
         @media @large {
             padding: 8px 10px;
-            font-family: 'PT Sans', sans-serif;
+            font-family: @font-family2;
             font-size: 15px;
         }
     }
@@ -410,7 +420,7 @@ body {
         }
 
         &__path-text {
-            font-family: 'PT Sans Bold', sans-serif;
+            font-family: @font-family3;
             font-size: 11px;
             font-stretch: ultra-condensed;
             letter-spacing: .01px;
@@ -430,7 +440,7 @@ body {
 
     &__title {
         text-align: left;
-        font-family: 'PT Sans Narrow', sans-serif;
+        font-family: @font-family1;
         font-size: 28px;
         font-weight: bolder;
         letter-spacing: 6.2px;
@@ -515,7 +525,7 @@ body {
     &__text {
         margin-top: 7px;
         margin-left: 5px;
-        font-family: 'PT Sans Bold', sans-serif;
+        font-family: @font-family3;
         font-size: 14.8px;
         font-weight: bold;
         line-height: 1.3;
@@ -553,10 +563,23 @@ body {
 
 .videos {
     text-align: center;
+    margin: 0 auto;
+    @media @tablet {
+        width: 670px;
+        padding-left: 28px;
+    }
+    @media @desktop {
+        width: 670px;
+        padding-left: 0;
+    }
+    @media @large{
+        width: 970px;
+        padding-left: 0;
+    }
 
     &__title {
         text-align: left;
-        font-family: 'PT Sans Narrow', sans-serif;
+        font-family: @font-family1;
         font-size: 28px;
         font-weight: bolder;
         margin-left: 5px;
@@ -582,7 +605,6 @@ body {
     &__wrap {
         @media @tablet {
             height: 180px;
-            width: 100%;
         }
     }
 
@@ -596,7 +618,7 @@ body {
         }
     }
 
-    &__link:after {
+    &__link::after {
         width: 60px;
         height: 60px;
         display: block;
@@ -640,7 +662,7 @@ body {
         padding: 0 1rem;
         letter-spacing: -1px;
         font-size: 13px;
-        font-family: 'PT Sans', sans-serif;
+        font-family: @font-family2;
         @media @tablet {
             display: none;
         }
@@ -655,7 +677,6 @@ body {
         height: 179px;
         margin-bottom: 45px;
         @media @tablet {
-            margin-left: 23px;
             margin-bottom: 0;
         }
         @media @desktop {
@@ -670,6 +691,12 @@ body {
     }
 }
 
+.videos:nth-child(1) {
+    @media @large {
+        margin-top: -5px;
+    }
+}
+
 .videos:nth-child(2) {
     > .videos__title {
         margin-top: 80px;
@@ -679,7 +706,7 @@ body {
             margin-top: 70px;
         }
         @media @desktop {
-            margin-top: 40px;
+            margin-top: 45px;
         }
     }
 }
@@ -721,6 +748,7 @@ body {
         margin-top: 75px;
         text-align: center;
         color: #b2b2b2;
+        height: 58px;
     }
     @media @desktop {
         margin-top: 130px;
@@ -738,7 +766,7 @@ body {
 
     &__location {
         margin-left: 6px;
-        font-family: 'PT Sans Bold', sans-serif;
+        font-family: @font-family3;
         font-size: 9.6px;
         @media @tablet {
             float: right;
@@ -750,7 +778,7 @@ body {
 
     &__navigation {
         margin: 37px 6px 0;
-        font-family: 'PT Sans', sans-serif;
+        font-family: @font-family2;
         font-size: 11.3px;
         @media @tablet {
             float: left;
@@ -784,26 +812,34 @@ body {
 }
 
 //кнопки slick
-.slick-prev, .slick-next {
-    width: 25px;
-    height: 25px;
-    margin: 0 10px;
-    @media @desktop {
-        margin: 0;
-        top: 30%;
-    }
-    @media @large {
-        top: 50%;
-    }
+.slick-disabled .videos-prev {
+    color: gray;
+    background-image: url("../img/left-arrow_gray.svg");
 }
 
-.slick-next {
+.videos-prev, .videos-next{
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.videos-next {
+    background: url("../img/right-arrow.svg");
+    @media @tablet {
+        right: -7px;
+    }
     @media @desktop {
         right: -40px;
     }
 }
 
-.slick-prev {
+.videos-prev {
+    background-image: url("../img/left-arrow.svg");
+    @media @tablet {
+        left: -40px;
+    }
     @media @desktop {
         left: -40px;
     }
