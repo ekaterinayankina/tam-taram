@@ -7,17 +7,11 @@
 
 
 //TODO:
-//change all classes as a__b__c => a__b b b__c
+//change all classes names as a__b__c => a__b b b__c
 //mobile video
 //add debounce
-//slider buttons in gray
 //mobile menu - exit
 //slider reloading while changing width --??
-
-body {
-    background: #ccc;
-}
-
 .page {
     background: white;
     margin: 0;
@@ -52,7 +46,7 @@ body {
         }
     }
     //текст кнопки
-    &__toggle:after {
+    &__toggle::after {
         content: '\2630\2630';
         text-decoration: none;
         font-size: 25px;
@@ -118,7 +112,7 @@ body {
             padding: 0;
             @media @desktop {
                 font-size: 10.5px;
-                letter-spacing: 0.005em;
+                letter-spacing: .005em;
             }
         }
 
@@ -325,7 +319,6 @@ body {
     }
 
     &__list::after {
-       content:'';
         display: block;
         position: absolute;
         right: 1%;
@@ -487,7 +480,7 @@ body {
         }
     }
 
-    &__link:after {
+    &__link::after {
         width: 60px;
         height: 60px;
         display: block;
@@ -812,12 +805,9 @@ body {
 }
 
 //кнопки slick
-.slick-disabled .videos-prev {
-    color: gray;
-    background-image: url("../img/left-arrow_gray.svg");
-}
-
-.videos-prev, .videos-next{
+.videos-prev,
+.videos-next{
+    cursor: pointer;
     width: 25px;
     height: 25px;
     position: absolute;
@@ -826,7 +816,7 @@ body {
 }
 
 .videos-next {
-    background: url("../img/right-arrow.svg");
+    background: url('../img/right-arrow.svg');
     @media @tablet {
         right: -7px;
     }
@@ -836,11 +826,19 @@ body {
 }
 
 .videos-prev {
-    background-image: url("../img/left-arrow.svg");
+    background: url('../img/left-arrow.svg');
     @media @tablet {
         left: -40px;
     }
     @media @desktop {
         left: -40px;
     }
+}
+
+.slick-disabled.videos-prev {
+    background-image: url('../img/left-arrow_gray.svg');
+}
+
+.slick-disabled.videos-next {
+    background-image: url('../img/right-arrow_gray.svg');
 }
