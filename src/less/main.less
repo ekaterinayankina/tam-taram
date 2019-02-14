@@ -5,9 +5,7 @@
 @font-family2: 'PT Sans', sans-serif;
 @font-family3: 'PT Sans Bold', sans-serif;
 
-
 //TODO:
-//change all classes names as a__b__c => a__b b b__c
 //mobile video
 //add debounce
 //mobile menu - exit
@@ -83,53 +81,6 @@
             transform: translateY(-53px);
             padding-left: 40px;
         }
-
-        &__text {
-            display: block;
-            float: left;
-            font-family: @font-family1;
-            letter-spacing: .02em;
-            font-size: smaller;
-            padding: 0;
-            @media @tablet {
-                letter-spacing: .005em;
-                font-family: @font-family3;
-                font-size: small;
-            }
-            @media @desktop {
-                font-family: @font-family3;
-                font-size: 9px;
-                letter-spacing: .005em;
-            }
-        }
-
-        &__text_bottom {
-            display: block;
-            font-family: @font-family3;
-            font-size: smaller;
-            margin-top: 11px;
-            font-style: normal;
-            padding: 0;
-            @media @desktop {
-                font-size: 10.5px;
-                letter-spacing: .005em;
-            }
-        }
-
-        //галочка
-        &__dropdown {
-            display: block;
-            float: left;
-            margin-left: 5px;
-            margin-top: 3px;
-            width: 10px;
-            height: 10px;
-        }
-
-        &__link {
-            color: white;
-            text-decoration: none;
-        }
     }
 
     &__logo {
@@ -160,18 +111,6 @@
             left: 0;
             right: 0;
         }
-
-        &__img {
-            @media @tablet {
-                margin-left: 15px;
-                margin-top: 23px;
-                width: 350px;
-            }
-            @media @desktop {
-                margin-top: 16px;
-                height: 35px;
-            }
-        }
     }
 
     &__search-form {
@@ -184,6 +123,69 @@
         @media @desktop {
             right: 15px;
             transform: translateY(-70px);
+        }
+    }
+}
+
+.nearest {
+    &__text {
+        display: block;
+        float: left;
+        font-family: @font-family1;
+        letter-spacing: .02em;
+        font-size: smaller;
+        padding: 0;
+        @media @tablet {
+            letter-spacing: .005em;
+            font-family: @font-family3;
+            font-size: small;
+        }
+        @media @desktop {
+            font-family: @font-family3;
+            font-size: 9px;
+            letter-spacing: .005em;
+        }
+    }
+
+    &__text_bottom {
+        display: block;
+        font-family: @font-family3;
+        font-size: smaller;
+        margin-top: 11px;
+        font-style: normal;
+        padding: 0;
+        @media @desktop {
+            font-size: 10.5px;
+            letter-spacing: .005em;
+        }
+    }
+
+    //галочка
+    &__dropdown {
+        display: block;
+        float: left;
+        margin-left: 5px;
+        margin-top: 3px;
+        width: 10px;
+        height: 10px;
+    }
+
+    &__link {
+        color: white;
+        text-decoration: none;
+    }
+}
+
+.logo {
+    &__img {
+        @media @tablet {
+            margin-left: 15px;
+            margin-top: 23px;
+            width: 350px;
+        }
+        @media @desktop {
+            margin-top: 16px;
+            height: 35px;
         }
     }
 }
@@ -407,24 +409,26 @@
         @media @desktop {
             margin-top: 10px;
         }
+    }
+}
 
-        &__link {
-            text-decoration: none;
-        }
+.path {
+    &__link {
+        text-decoration: none;
+    }
 
-        &__path-text {
-            font-family: @font-family3;
-            font-size: 11px;
-            font-stretch: ultra-condensed;
-            letter-spacing: .01px;
-            @media @desktop {
-                font-size: 13px;
-            }
+    &__path-text {
+        font-family: @font-family3;
+        font-size: 11px;
+        font-stretch: ultra-condensed;
+        letter-spacing: .01px;
+        @media @desktop {
+            font-size: 13px;
         }
+    }
 
-        &__path-text:nth-child(2n) {
-            color: red;
-        }
+    &__path-text:nth-child(2n) {
+        color: red;
     }
 }
 
@@ -565,7 +569,7 @@
         width: 670px;
         padding-left: 0;
     }
-    @media @large{
+    @media @large {
         width: 970px;
         padding-left: 0;
     }
@@ -780,13 +784,15 @@
             text-align: left;
             color: #b2b2b2;
         }
+    }
+}
 
-        &__link {
-            text-transform: uppercase;
-            text-decoration: none;
-            color: white;
-            margin-right: 6px;
-        }
+.navigation {
+    &__link {
+        text-transform: uppercase;
+        text-decoration: none;
+        color: white;
+        margin-right: 6px;
     }
 }
 
@@ -806,7 +812,7 @@
 
 //кнопки slick
 .videos-prev,
-.videos-next{
+.videos-next {
     cursor: pointer;
     width: 25px;
     height: 25px;

@@ -73,18 +73,18 @@ const footerNavigation = [
         <button data-collapse data-target="#navigation" class="title__toggle"></button>
 
         <div class="title__logo logo">
-            <img src="img/logo.svg" alt="TamTaram logo" class="logo__img title__logo__img">
+            <img src="img/logo.svg" alt="TamTaram logo" class="logo__img">
         </div>
 
     </div>
     <div class="navigation-block">
-        <div class=" title__nearest">
-            <a href="/" class="title__nearest__link">
-                <span class=" title__nearest__text">NEAREST SALON </span>
+        <div class="nearest title__nearest">
+            <a href="/" class="nearest__link">
+                <span class=" nearest__text">NEAREST SALON </span>
 
-                    <img src="img/ico_dropdown.svg" alt="->" class=" title__nearest__dropdown">
+                    <img src="img/ico_dropdown.svg" alt="->" class=" nearest__dropdown">
 
-                <address class="title__nearest__text_bottom">Plush Salon 92101 </address>
+                <address class="nearest__text_bottom">Plush Salon 92101 </address>
             </a>
         </div>
         <form class="title__search-form search-form" action="#" method="get">
@@ -106,10 +106,10 @@ const footerNavigation = [
         </nav>
     </div>
 </div>
-<div class="page-content__path">
-    <a class="page-content__path__link" href="#">
-        <nobr class="page-content__path__path-text">HOME /</nobr>
-        <nobr class="page-content__path__path-text">VIDEOS</nobr>
+<div class="path page-content__path">
+    <a class="path__link" href="#">
+        <nobr class="path__path-text">HOME /</nobr>
+        <nobr class="path__path-text">VIDEOS</nobr>
     </a>
 </div>
 <div class="page-content">
@@ -152,7 +152,7 @@ const footerNavigation = [
     </div>
 </div>
 <footer class="footer">
-    <div class="footer__share share">
+    <div class="share footer__share">
         <% links.forEach((item) => { %>
             <a class="share__link" href="<%= item.link %>">
                 <img src="<%= item.img %>" alt="" class="share__img">
@@ -163,9 +163,9 @@ const footerNavigation = [
         LOCATION: UNITED STATES <br>
         LANGUAGE: ENGLISH
     </div>
-    <div class="footer__navigation">
+    <div class="navigation footer__navigation ">
         <% footerNavigation.forEach((item) => { %>
-            <a class="footer__navigation__link" href="<%= item.link %>"><%= item.title %></a>
+            <a class="navigation__link" href="<%= item.link %>"><%= item.title %></a>
         <% }) %>
     </div>
 
